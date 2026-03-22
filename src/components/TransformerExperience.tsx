@@ -26,7 +26,7 @@ export default function TransformerExperience({ scrollYProgress }: TransformerEx
 
   // Current frame string derived from total frames based on scrolling (0..204)
   const exactFrame = useTransform(scrollYProgress, [0, 1], [1, sequenceData.totalFrames]);
-  const frameStr = useTransform(exactFrame, Math.round, (v) => v.toString().padStart(3, '0'));
+  const frameStr = useTransform(exactFrame, (v: number) => Math.round(v).toString().padStart(3, '0'));
 
   // ARRIVAL PHASE (75% - 100%)
   const arrivalOpacity = useTransform(
